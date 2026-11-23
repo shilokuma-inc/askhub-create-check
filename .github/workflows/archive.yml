@@ -1,0 +1,21 @@
+name: Archive
+
+# Archive → IPA Export まで通ることを確認する（アップロードはしない）。手動実行のみ。
+# main への push では Build だけを実行する（main には develop / release/** で Upload を通したものがマージされるため）。
+# develop / release/** は upload.yml が Archive を含む。
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  archive:
+    uses: ./.github/workflows/_archive.yml
+    with:
+      upload: false
+    secrets: inherit

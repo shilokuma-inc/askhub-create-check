@@ -1,0 +1,7 @@
+{
+  "v": 1,
+  "project": "AskhubCreateCheck.xcodeproj",
+  "scheme": "AskhubCreateCheck",
+  "platforms": ["iOS"],
+  "uiTests": "AskhubCreateCheckUITests"
+}
